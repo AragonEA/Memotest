@@ -59,3 +59,13 @@ p{
     text-align: center;
 }
 
+
+@media only screen and (max-width: 575px) {
+row{
+    justify-content: start;
+}
+.square-row {
+    height: 20vh;
+}
+    
+}
