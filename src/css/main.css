@@ -1,0 +1,61 @@
+body,
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to right, darkred, black);
+}
+
+p{
+    color: white;
+}
+.complete {
+    background: black;
+}
+
+.square-column {
+    border: 1px solid black;
+}
+
+.square-row {
+    height: 24vh;
+}
+
+
+.square {
+    opacity: 0;
+    transition: opacity ease 0.2s;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.palevioletred {
+    background-color: palevioletred;
+}
+
+.goldenrod {
+    background-color: goldenrod;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.violet {
+    background-color: violet;
+}
+
+.lightskyblue {
+    background-color: lightskyblue;
+}
+
+#game-over {
+    display: none;
+    text-align: center;
+}
+
