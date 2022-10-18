@@ -1,5 +1,6 @@
 let moves = 0;
 let seconds = 0;
+let $firstSquare = null;
 let interval;
 
 const $moves = document.querySelector('#moves');
@@ -21,6 +22,7 @@ function setUpGame() {
   $board.style.display = '';
   hideStartGameButton()
   setUpSquares($squares, repeatedColors);
+  handleEvents($board);
   startTimer();
 }
 
@@ -31,6 +33,49 @@ function setUpSquares($squares, colors) {
   })
 }
 
+function handleEvents($board) {
+
+  $squares.forEach(function ($square) {
+    $square.onclick = function () {
+      handleClickToSquare($square);
+    }
+  });
+  // $board.onclick = function (event) {
+  //   const $element = event.target;
+  //   if ($element.classList.contains('square')) {
+  //     handleClickToSquare($element);
+  //   }
+  // };
+}
+
+function handleClickToSquare($currentSquare) {
+  showSquare($currentSquare);
+  if ($firstSquare === null) {
+    $firstSquare = $currentSquare;
+  } else {
+    if ($firstSquare === $currentSquare) {
+      return;
+    }
+    if (squaresAreEqual($firstSquare, $currentSquare)) {
+      deleteSquare($firstSquare);
+      deleteSquare($currentSquare);
+    } else {
+      hideSquare($firstSquare);
+      hideSquare($currentSquare);
+    }
+    $firstSquare = null;
+  }
+}
+
+function squaresAreEqual($square1, $square2) {
+  return $square1.className === $square2.className;
+}
+function deleteSquare($square) {
+  setTimeout(function () {
+    $square.parentElement.classList.add('complete');
+    $square.remove();
+  }, 500);
+}
 function startTimer() {
   interval = setInterval(() => {
     seconds++;
