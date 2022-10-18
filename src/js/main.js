@@ -74,8 +74,19 @@ function deleteSquare($square) {
   setTimeout(function () {
     $square.parentElement.classList.add('complete');
     $square.remove();
+    checkIfGameOver();
   }, 500);
 }
+
+function checkIfGameOver() {
+  if (document.querySelectorAll('.square').length === 0) {
+    $board.style.display = 'none';
+    $gameOverMessage.style.display = 'block';
+    clearInterval(interval);
+  }
+}
+
+
 function startTimer() {
   interval = setInterval(() => {
     seconds++;
