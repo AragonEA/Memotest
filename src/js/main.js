@@ -56,6 +56,8 @@ function handleClickToSquare($currentSquare) {
     if ($firstSquare === $currentSquare) {
       return;
     }
+    moves++;
+    updateMoves();
     if (squaresAreEqual($firstSquare, $currentSquare)) {
       deleteSquare($firstSquare);
       deleteSquare($currentSquare);
@@ -70,6 +72,7 @@ function handleClickToSquare($currentSquare) {
 function squaresAreEqual($square1, $square2) {
   return $square1.className === $square2.className;
 }
+
 function deleteSquare($square) {
   setTimeout(function () {
     $square.parentElement.classList.add('complete');
