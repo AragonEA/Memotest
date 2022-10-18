@@ -12,6 +12,8 @@ const $startGameButton = document.querySelector('button[type=button]');
 
 $startGameButton.onclick = startGame;
 
+$board.style.display = 'none';
+
 function startGame() {
   setUpGame();
 }
