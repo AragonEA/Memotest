@@ -123,9 +123,7 @@ function showSquare($square) {
 }
 
 function hideSquare($square) {
-  // setTimeout(function () {
-  //   $square.style.opacity = '0';
-  // }, 500);
-  $square.style.opacity = '0';
-
+  setTimeout(function () {
+    $square.style.opacity = '0';
+  }, 500);
 }
