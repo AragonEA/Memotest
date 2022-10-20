@@ -36,18 +36,12 @@ function setUpSquares($squares, colors) {
 }
 
 function handleEvents($board) {
-
-  $squares.forEach(function ($square) {
-    $square.onclick = function () {
-      handleClickToSquare($square);
+  $board.onclick = function (event) {
+    const $element = event.target;
+    if ($element.classList.contains('square')) {
+      handleClickToSquare($element);
     }
-  });
-  // $board.onclick = function (event) {
-  //   const $element = event.target;
-  //   if ($element.classList.contains('square')) {
-  //     handleClickToSquare($element);
-  //   }
-  // };
+  };
 }
 
 function handleClickToSquare($currentSquare) {
