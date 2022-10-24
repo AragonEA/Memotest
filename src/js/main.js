@@ -8,7 +8,7 @@ const $timer = document.querySelector('#timer');
 const $board = document.querySelector('#board');
 const $squares = $board.querySelectorAll('.square');
 const $gameOverMessage = document.querySelector('#game-over');
-const $startGameButton = document.querySelector('button[type=button]');
+const $startGameButton = document.querySelector('#start-game-btn');
 
 $startGameButton.onclick = startGame;
 
