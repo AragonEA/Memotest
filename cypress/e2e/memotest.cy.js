@@ -38,5 +38,28 @@ context('Memotest', () => {
       cy.get('#board').should('be.visible');
     })
 
+
+    it('squares should be randomly generated', () => {
+      cy.get('.square').then((squares) => {
+        let firstClasses = [];
+        squares.each(function (i, squares) {
+          firstClasses.push(squares.className);
+        });
+
+        cy.visit(URL);
+
+        let secondClasses = [];
+        cy.get('.square').then(newSquares => {
+          newSquares.each(function (i, squares) {
+            secondClasses.push(squares.className);
+          });
+
+          cy.wrap(firstClasses).should('not.deep.equal', secondClasses);
+
+        });
+      });
+    });
+
+
   });
 });
