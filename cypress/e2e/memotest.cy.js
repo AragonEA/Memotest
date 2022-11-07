@@ -86,6 +86,19 @@ context('Memotest', () => {
           cy.get(pair[1]).click();
         });
 
+        it('game over screen sould be visible', () => {
+
+        cy.get('.square').should('have.length', 0);
+
+        cy.get('#board').should('not.be.visible');
+
+        const moves = TOTAL_SQUARES / 2 + 1;
+        cy.get('#moves').contains(`${moves}`);
+
+        cy.get('#timer').contains(`${seconds}`);
+
+        cy.get('#game-over').should('be.visible').contains(`Game over!`,);
+        });
       });
     });
   });
