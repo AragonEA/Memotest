@@ -61,6 +61,25 @@ context('Memotest', () => {
     });
 
 
+
+    describe('solves memotest', () => {
+
+      it('chooses a wrong combination', () => {
+        let pairsMap, pairsList;
+        cy.get('#start-game-btn').click();
+        cy.get('.square').then(squares => {
+          pairsMap = getSquarePairs(squares);
+          pairsList = Object.values(pairsMap);
+
+          cy.get(pairsList[0][0]).click();
+          cy.get(pairsList[1][0]).click();
+
+          cy.get('.square').should('have.length', TOTAL_SQUARES);
+        });
+      });
+
+      });
+    });
   });
 });
 
