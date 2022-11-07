@@ -63,3 +63,18 @@ context('Memotest', () => {
 
   });
 });
+
+
+function getSquarePairs(square) {
+  const pairs = {};
+  square.each((i, square) => {
+    const colorClass = square.className.replace('square h-100 ', '');
+
+    if (pairs[colorClass]) {
+      pairs[colorClass].push(square);
+    } else {
+      pairs[colorClass] = [square];
+    }
+  });
+  return pairs;
+}
