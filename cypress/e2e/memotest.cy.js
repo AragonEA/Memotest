@@ -78,6 +78,14 @@ context('Memotest', () => {
         });
       });
 
+      it('solves the game', () => {
+        cy.get('.square').should('have.length', TOTAL_SQUARES);
+
+        pairsList.forEach((pair) => {
+          cy.get(pair[0]).click();
+          cy.get(pair[1]).click();
+        });
+
       });
     });
   });
